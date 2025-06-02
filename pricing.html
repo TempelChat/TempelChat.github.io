@@ -172,7 +172,91 @@
   </style>
 </head>
 <body>
+<!-- TempelChat Help Center Header with Theme System -->
+<header class="tc-header">
+  <div class="container">
+    <a href="/" class="tc-logo">TempelChat</a>
+    <nav class="tc-nav">
+      <a href="https://sites.google.com/view/tempelchat/about-tempelchat" class="tc-nav-link">About</a>
+      <a href="https://tempelchat.github.io/pricing.html" class="tc-nav-link">Pricing</a>
+      <a href="https://tempelchat.github.io/help-center.html" class="tc-nav-link">Help Center</a>
+    </nav>
+  </div>
+</header>
 
+<!-- Theme System CSS (basic light/dark mode support) -->
+<style>
+  :root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+  }
+
+  [data-theme="dark"] {
+    --bg-color: #1e1e1e;
+    --text-color: #ffffff;
+  }
+
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    font-family: sans-serif;
+  }
+
+  .tc-header {
+    background-color: var(--bg-color);
+    border-bottom: 1px solid #ccc;
+    padding: 1rem;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .tc-logo {
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: var(--text-color);
+    text-decoration: none;
+  }
+
+  .tc-nav {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .tc-nav-link {
+    text-decoration: none;
+    color: var(--text-color);
+  }
+
+  .tc-theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    color: var(--text-color);
+  }
+</style>
+
+<!-- Theme Toggle Script -->
+<script>
+  // Set theme on load
+  const theme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', theme);
+
+  // Toggle theme button
+  document.getElementById('themeToggle').addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', nextTheme);
+    localStorage.setItem('theme', nextTheme);
+  });
+</script>
   <header>
     <h1>TempelChat Pricing</h1>
     <p>Flexible plans for individuals, teams, and enterprises</p>
