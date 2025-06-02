@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TempelChat Pricing</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9fb;
+      color: #333;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body.dark {
+      background: #1e1e2f;
+      color: #f0f0f0;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: #666;
+      font-size: 1.1rem;
+    }
+
+    body.dark p {
+      color: #bbb;
+    }
+
+    .controls {
+      text-align: center;
+      margin: 1rem;
+    }
+
+    .pricing-table {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 2rem 1rem;
+      gap: 1.5rem;
+    }
+
+    .plan {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      padding: 2rem;
+      flex: 1 1 250px;
+      max-width: 300px;
+      text-align: center;
+      position: relative;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body.dark .plan {
+      background: #2b2b3d;
+      color: #eee;
+    }
+
+    .plan.recommended {
+      border: 2px solid #0066cc;
+      box-shadow: 0 4px 20px rgba(0, 102, 204, 0.2);
+    }
+
+    .plan.recommended::before {
+      content: "Most Popular";
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #0066cc;
+      color: white;
+      padding: 0.2rem 0.6rem;
+      font-size: 0.75rem;
+      border-radius: 12px;
+    }
+
+    .plan h2 {
+      margin-top: 0;
+      font-size: 1.5rem;
+    }
+
+    .price {
+      font-size: 2rem;
+      color: #0066cc;
+      margin: 1rem 0;
+    }
+
+    .features {
+      text-align: left;
+      margin: 1rem 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .features li {
+      margin: 0.5rem 0;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      background: #0066cc;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #004fa3;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    body.dark footer {
+      color: #aaa;
+    }
+
+    .responsive-table {
+      overflow-x: auto;
+      margin: 2rem 1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: sans-serif;
+      text-align: left;
+      min-width: 600px;
+    }
+
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    thead {
+      background: #f4f4f4;
+    }
+
+    body.dark thead {
+      background: #3a3a50;
+    }
+
+    tr:nth-child(even) {
+      background: #f9f9f9;
+    }
+
+    body.dark tr:nth-child(even) {
+      background: #2c2c3f;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>TempelChat Pricing</h1>
+    <p>Flexible plans for individuals, teams, and enterprises</p>
+  </header>
+
+  <div class="controls">
+    <label>
+      <input type="checkbox" id="togglePricing"> Show Annual Pricing
+    </label>
+    &nbsp;&nbsp;
+    <button onclick="document.body.classList.toggle('dark')">🌙 Toggle Dark Mode</button>
+  </div>
+
+  <section class="pricing-table">
+    <div class="plan">
+      <h2>Free</h2>
+      <p class="price" data-monthly="$0/mo" data-yearly="$0/yr">$0/mo</p>
+      <ul class="features">
+        <li>✔️ Up to 5 users</li>
+        <li>✔️ Basic chat features</li>
+        <li>✔️ 7-day message history</li>
+        <li>✔️ Community support</li>
+      </ul>
+      <a href="https://patreon.com/TempelChat_Sales" class="btn">Get Started</a>
+    </div>
+
+    <div class="plan recommended">
+      <h2>Pro</h2>
+      <p class="price" data-monthly="$9.99/user/mo" data-yearly="$99.99/user/yr">$9.99/user/mo</p>
+      <ul class="features">
+        <li>✔️ Unlimited users</li>
+        <li>✔️ Full chat history</li>
+        <li>✔️ File sharing</li>
+        <li>✔️ Priority support</li>
+      </ul>
+      <a href="https://www.patreon.com/checkout/TempelChat_Sales?rid=26037944" class="btn">Upgrade</a>
+    </div>
+
+    <div class="plan">
+      <h2>Premium</h2>
+      <p class="price" data-monthly="$19.99/user/mo" data-yearly="$199.99/user/yr">$19.99/user/mo</p>
+      <ul class="features">
+        <li>✔️ All Pro features</li>
+        <li>✔️ AI assistant & search</li>
+        <li>✔️ Voice/video chat</li>
+        <li>✔️ App integrations</li>
+      </ul>
+      <a href="https://www.patreon.com/checkout/TempelChat_Sales?rid=26037962" class="btn">Try Premium</a>
+    </div>
+
+    <div class="plan">
+      <h2>Enterprise</h2>
+      <p class="price">Custom</p>
+      <ul class="features">
+        <li>✔️ Custom deployment</li>
+        <li>✔️ SSO & compliance</li>
+        <li>✔️ API & dev tools</li>
+        <li>✔️ Dedicated manager</li>
+      </ul>
+      <a href="https://www.patreon.com/c/tempelchat_sales/about" class="btn">Contact Sales</a>
+    </div>
+  </section>
+
+  <div class="responsive-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Free</th>
+          <th>Pro</th>
+          <th>Premium</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Private & Group Chats</td><td>✔️ Limited</td><td>✔️ Unlimited</td><td>✔️ Unlimited</td></tr>
+        <tr><td>File Sharing</td><td>🚫</td><td>Up to 1GB per file</td><td>Up to 5GB per file</td></tr>
+        <tr><td>Custom Themes & Profiles</td><td>🚫</td><td>✔️</td><td>✔️ + Exclusive Layouts</td></tr>
+        <tr><td>Cloud Backup & Sync</td><td>🚫</td><td>✔️</td><td>✔️ Cross-Platform</td></tr>
+        <tr><td>Chat Insights & Logs</td><td>🚫</td><td>✔️</td><td>✔️ Enhanced Analytics</td></tr>
+        <tr><td>Voice & Video Calling</td><td>🚫</td><td>🚫</td><td>✔️ Up to 100 participants</td></tr>
+        <tr><td>AI Smart Replies</td><td>🚫</td><td>🚫</td><td>✔️</td></tr>
+        <tr><td>Real-Time Translation</td><td>🚫</td><td>🚫</td><td>✔️</td></tr>
+        <tr><td>Admin Tools</td><td>🚫</td><td>🚫</td><td>✔️</td></tr>
+        <tr><td>Priority Support</td><td>🚫</td><td>Email Only</td><td>24/7 Live Support</td></tr>
+        <tr>
+          <td><strong>Price</strong></td>
+          <td><strong>Free</strong></td>
+          <td><strong>$9.99/mo<br>$99.99/yr</strong></td>
+          <td><strong>$19.99/mo<br>$199.99/yr</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <footer>
+    Add-ons available: AI Assistant ($5/mo), Transcription ($10/mo), Branded App ($49/mo)
+  </footer>
+
+  <script>
+    const toggle = document.getElementById("togglePricing");
+    toggle.addEventListener("change", () => {
+      document.querySelectorAll(".price").forEach(price => {
+        const yearly = price.getAttribute("data-yearly");
+        const monthly = price.getAttribute("data-monthly");
+        price.textContent = toggle.checked ? yearly : monthly;
+      });
+    });
+  </script>
+<footer style="background: #f1f1f1; padding: 20px 0; text-align: center; font-size: 14px; color: #555;">
+  <div style="margin-bottom: 10px;">
+    <a href="https://sites.google.com/view/tempelchat/about-tempelchat?authuser=0" style="margin: 0 10px; color: #4a90e2; text-decoration: none;">Home</a>
+    <a href="https://tempelchat.github.io/TempelChat-Contact/" style="margin: 0 10px; color: #4a90e2; text-decoration: none;">Contact</a>
+    <a href="https://docs.google.com/document/d/18K4MfmGD_IARY9QkTzAbnkqUyO7Cqw6DVbO0sKJXmnA/edit?usp=drivesdk" style="margin: 0 10px; color: #4a90e2; text-decoration: none;">Privacy</a>
+    <a href="https://docs.google.com/document/d/18N2B_i6kVL6jCcHfPiMryUwzYiwFQEIkF9f4tB89Mk0/edit?usp=drivesdk" style="margin: 0 10px; color: #4a90e2; text-decoration: none;">Terms</a>
+  </div>
+  <div>&copy; 2025 TempelChat. All rights reserved.</div>
+</footer>
+</body>
+</html>
