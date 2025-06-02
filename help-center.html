@@ -1,5 +1,108 @@
 <!DOCTYPE html>
-<header>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TempelChat Help Center</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      color: #222;
+      background: #f9f9f9;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    header h1 {
+      margin-bottom: 0.5rem;
+    }
+
+    nav a {
+      margin: 0 10px;
+      color: #4a90e2;
+      text-decoration: none;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .accordion {
+      background-color: #eee;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+
+    .accordion-header {
+      cursor: pointer;
+      padding: 1rem;
+      font-weight: bold;
+      border: none;
+      width: 100%;
+      background-color: #eee;
+      border-bottom: 1px solid #ccc;
+      text-align: left;
+      font-size: 1.05rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .accordion-header:hover {
+      background-color: #ddd;
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 1rem;
+      background-color: white;
+      transition: max-height 0.3s ease;
+    }
+
+    .accordion-content p,
+    .accordion-content ul {
+      margin: 0.5rem 0 1rem;
+    }
+
+    .accordion-content ul {
+      padding-left: 1.2rem;
+    }
+
+    footer {
+      background: #f1f1f1;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 14px;
+      color: #555;
+      margin-top: 2rem;
+    }
+
+    footer a {
+      margin: 0 10px;
+      color: #4a90e2;
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+      }
+      .accordion-header {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
     <h1>TempelChat</h1>
     <nav>
       <a href="https://sites.google.com/view/tempelchat/about-tempelchat">About</a>
@@ -7,166 +110,124 @@
       <a href="https://tempelchat.github.io/help-center.html">Help Center</a>
     </nav>
   </header>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>TempelChat Help Center</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-    color: #222;
-    background: #f9f9f9;
-  }
-  h1 {
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-  .accordion {
-    background-color: #eee;
-    border-radius: 5px;
-    margin-bottom: 1rem;
-  }
-  .accordion-header {
-    cursor: pointer;
-    padding: 1rem;
-    font-weight: bold;
-    border-bottom: 1px solid #ccc;
-    user-select: none;
-  }
-  .accordion-header:hover {
-    background-color: #ddd;
-  }
-  .accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    padding: 0 1rem;
-    background-color: white;
-    transition: max-height 0.3s ease;
-  }
-  .accordion-content p, .accordion-content ul {
-    margin: 0.5rem 0 1rem;
-  }
-  .accordion-content ul {
-    padding-left: 1.2rem;
-  }
-  .accordion.active .accordion-content {
-    max-height: 500px; /* large enough for content */
-    padding: 1rem;
-  }
-</style>
-</head>
-<body>
 
-<h1>TempelChat Help Center</h1>
-<p>Welcome to the TempelChat Help Center! Here you’ll find answers to common questions and tips to get the most out of your TempelChat experience.</p>
+  <h1>Help Center</h1>
+  <p>Welcome to the TempelChat Help Center! Here you’ll find answers to common questions and tips to get the most out of your TempelChat experience.</p>
 
-<div class="accordion">
-  <div class="accordion-header">1. Getting Started</div>
-  <div class="accordion-content">
-    <p><strong>How do I create an account?</strong></p>
-    <ul>
-      <li>Click on the <strong>Sign Up</strong> button on the homepage.</li>
-      <li>Enter your details and verify your email.</li>
-      <li>You’re ready to start chatting!</li>
-    </ul>
-    <p><strong>How do I log in?</strong></p>
-    <ul>
-      <li>Click the <strong>Log In</strong> button.</li>
-      <li>Enter your username and password.</li>
-      <li>If you forgot your password, click <strong>Forgot Password</strong> to reset it.</li>
-    </ul>
+  <!-- Accordion Sections -->
+  <div class="accordion">
+    <button class="accordion-header" aria-expanded="false" aria-controls="panel1">1. Getting Started</button>
+    <div class="accordion-content" id="panel1">
+      <p><strong>How do I create an account?</strong></p>
+      <ul>
+        <li>Click on the <strong>Sign Up</strong> button on the homepage.</li>
+        <li>Enter your details and verify your email.</li>
+        <li>You’re ready to start chatting!</li>
+      </ul>
+      <p><strong>How do I log in?</strong></p>
+      <ul>
+        <li>Click the <strong>Log In</strong> button.</li>
+        <li>Enter your username and password.</li>
+        <li>If you forgot your password, click <strong>Forgot Password</strong> to reset it.</li>
+      </ul>
+    </div>
   </div>
-</div>
 
-<div class="accordion">
-  <div class="accordion-header">2. Using TempelChat</div>
-  <div class="accordion-content">
-    <p><strong>How do I start a chat?</strong></p>
-    <ul>
-      <li>After logging in, go to the <strong>Contacts</strong> or <strong>Chat Rooms</strong> section.</li>
-      <li>Click on a contact or room to start messaging.</li>
-    </ul>
-    <p><strong>How do I send pictures or files?</strong></p>
-    <ul>
-      <li>Use the attachment icon 📎 in the chat input area to upload images or files.</li>
-    </ul>
+  <div class="accordion">
+    <button class="accordion-header" aria-expanded="false" aria-controls="panel2">2. Using TempelChat</button>
+    <div class="accordion-content" id="panel2">
+      <p><strong>How do I start a chat?</strong></p>
+      <ul>
+        <li>After logging in, go to the <strong>Contacts</strong> or <strong>Chat Rooms</strong> section.</li>
+        <li>Click on a contact or room to start messaging.</li>
+      </ul>
+      <p><strong>How do I send pictures or files?</strong></p>
+      <ul>
+        <li>Use the attachment icon 📎 in the chat input area to upload images or files.</li>
+      </ul>
+    </div>
   </div>
-</div>
 
-<div class="accordion">
-  <div class="accordion-header">3. Account Management</div>
-  <div class="accordion-content">
-    <p><strong>How do I change my profile info?</strong></p>
-    <ul>
-      <li>Go to <strong>Settings &gt; Profile</strong>.</li>
-      <li>Update your info and save changes.</li>
-    </ul>
-    <p><strong>How do I change my password?</strong></p>
-    <ul>
-      <li>Visit <strong>Settings &gt; Security &gt; Change Password</strong>.</li>
-      <li>Follow the prompts to update your password.</li>
-    </ul>
+  <div class="accordion">
+    <button class="accordion-header" aria-expanded="false" aria-controls="panel3">3. Account Management</button>
+    <div class="accordion-content" id="panel3">
+      <p><strong>How do I change my profile info?</strong></p>
+      <ul>
+        <li>Go to <strong>Settings &gt; Profile</strong>.</li>
+        <li>Update your info and save changes.</li>
+      </ul>
+      <p><strong>How do I change my password?</strong></p>
+      <ul>
+        <li>Visit <strong>Settings &gt; Security &gt; Change Password</strong>.</li>
+        <li>Follow the prompts to update your password.</li>
+      </ul>
+    </div>
   </div>
-</div>
 
-<div class="accordion">
-  <div class="accordion-header">4. Troubleshooting</div>
-  <div class="accordion-content">
-    <p><strong>I can’t log in. What do I do?</strong></p>
-    <ul>
-      <li>Double-check your username and password.</li>
-      <li>Reset your password if needed.</li>
-      <li>Clear your browser cache or try a different browser.</li>
-      <li>Contact support if the issue persists.</li>
-    </ul>
-    <p><strong>Messages aren’t sending.</strong></p>
-    <ul>
-      <li>Check your internet connection.</li>
-      <li>Refresh the page or log out and back in.</li>
-      <li>Make sure you’re using the latest version of TempelChat.</li>
-    </ul>
+  <div class="accordion">
+    <button class="accordion-header" aria-expanded="false" aria-controls="panel4">4. Troubleshooting</button>
+    <div class="accordion-content" id="panel4">
+      <p><strong>I can’t log in. What do I do?</strong></p>
+      <ul>
+        <li>Double-check your username and password.</li>
+        <li>Reset your password if needed.</li>
+        <li>Clear your browser cache or try a different browser.</li>
+        <li>Contact support if the issue persists.</li>
+      </ul>
+      <p><strong>Messages aren’t sending.</strong></p>
+      <ul>
+        <li>Check your internet connection.</li>
+        <li>Refresh the page or log out and back in.</li>
+        <li>Make sure you’re using the latest version of TempelChat.</li>
+      </ul>
+    </div>
   </div>
-</div>
 
-<div class="accordion">
-  <div class="accordion-header">5. Privacy & Security</div>
-  <div class="accordion-content">
-    <p><strong>Is my chat private?</strong></p>
-    <p>Yes. TempelChat uses end-to-end encryption to keep your messages secure.</p>
-    <p><strong>How do I report abuse?</strong></p>
-    <p>Use the <strong>Report</strong> button in the chat or contact support immediately.</p>
+  <div class="accordion">
+    <button class="accordion-header" aria-expanded="false" aria-controls="panel5">5. Privacy & Security</button>
+    <div class="accordion-content" id="panel5">
+      <p><strong>Is my chat private?</strong></p>
+      <p>Yes. TempelChat uses end-to-end encryption to keep your messages secure.</p>
+      <p><strong>How do I report abuse?</strong></p>
+      <p>Use the <strong>Report</strong> button in the chat or contact support immediately.</p>
+    </div>
   </div>
-</div>
 
-<div class="accordion">
-  <div class="accordion-header">6. Contact Support</div>
-  <div class="accordion-content">
-    <p>If you have any other questions or need help, please contact us at:</p>
-    <p><strong>Email:</strong> info.tempelchat@gmail.com</p>
-    <p><strong>Instagram:</strong> @TempelChat</p>
+  <div class="accordion">
+    <button class="accordion-header" aria-expanded="false" aria-controls="panel6">6. Contact Support</button>
+    <div class="accordion-content" id="panel6">
+      <p>If you have any other questions or need help, please contact us at:</p>
+      <p><strong>Email:</strong> info.tempelchat@gmail.com</p>
+      <p><strong>Instagram:</strong> @TempelChat</p>
+    </div>
   </div>
-</div>
 
-<script>
-  document.querySelectorAll('.accordion-header').forEach(header => {
-    header.addEventListener('click', () => {
-      const accordion = header.parentElement;
-      accordion.classList.toggle('active');
+  <!-- JavaScript for Accordion -->
+  <script>
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const content = header.nextElementSibling;
+        const isExpanded = header.getAttribute('aria-expanded') === 'true';
+
+        header.setAttribute('aria-expanded', !isExpanded);
+        if (!isExpanded) {
+          content.style.maxHeight = content.scrollHeight + "px";
+        } else {
+          content.style.maxHeight = null;
+        }
+      });
     });
-  });
-</script>
-<footer style="background: #f1f1f1; padding: 20px 0; text-align: center; font-size: 14px; color: #555;">
-  <div style="margin-bottom: 10px;">
-    <a href="https://sites.google.com/view/tempelchat/about-tempelchat?authuser=0" style="margin: 0 10px; color: #4a90e2; text-decoration: none;">Home</a>
-    <a href="https://tempelchat.github.io/TempelChat-Contact/" style="margin: 0 10px; color: #4a90e2; text-decoration: none;">Contact</a>
-    <a href="https://docs.google.com/document/d/18K4MfmGD_IARY9QkTzAbnkqUyO7Cqw6DVbO0sKJXmnA/edit?usp=drivesdk" style="margin: 0 10px; color: #4a90e2; text-decoration: none;">Privacy</a>
-    <a href="https://docs.google.com/document/d/18N2B_i6kVL6jCcHfPiMryUwzYiwFQEIkF9f4tB89Mk0/edit?usp=drivesdk" style="margin: 0 10px; color: #4a90e2; text-decoration: none;">Terms</a>
-  </div>
-  <div>&copy; 2025 TempelChat. All rights reserved.</div>
-</footer>
+  </script>
+
+  <footer>
+    <div style="margin-bottom: 10px;">
+      <a href="https://sites.google.com/view/tempelchat/about-tempelchat?authuser=0">Home</a>
+      <a href="https://tempelchat.github.io/TempelChat-Contact/">Contact</a>
+      <a href="https://docs.google.com/document/d/18K4MfmGD_IARY9QkTzAbnkqUyO7Cqw6DVbO0sKJXmnA/edit?usp=drivesdk">Privacy</a>
+      <a href="https://docs.google.com/document/d/18N2B_i6kVL6jCcHfPiMryUwzYiwFQEIkF9f4tB89Mk0/edit?usp=drivesdk">Terms</a>
+    </div>
+    <div>&copy; 2025 TempelChat. All rights reserved.</div>
+  </footer>
+
 </body>
 </html>
