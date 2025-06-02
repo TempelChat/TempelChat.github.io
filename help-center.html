@@ -5,59 +5,90 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TempelChat Help Center</title>
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 1rem 2rem; /* add bottom padding for footer */
-    color: #222;
-    background: #f9f9f9;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  /* Header styles */
-  header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    max-width: 800px;
-    height: 50px;
-    background-color: #4a90e2;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 1rem;
-    box-sizing: border-box;
-    color: white;
-    z-index: 1001;
-    border-radius: 0 0 8px 8px;
-  }
-  
-  header a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1rem;
-  }
-  header a:hover {
-    text-decoration: underline;
+  :root {
+    --bg-color: #f9f9f9;
+    --text-color: #222;
+    --header-bg: #2c3e50;
+    --header-text: #ffffff;
+    --button-text: #6dd5fa;
   }
 
-  /* Push page content down to avoid overlap with fixed header */
-  body > *:not(header) {
-    margin-top: 60px;
+  body.dark-mode {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --header-bg: #1f1f1f;
+    --header-text: #ffffff;
+    --button-text: #6dd5fa;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem 2rem;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+
+  header h1 {
+    font-size: 24px;
+    margin: 0;
+  }
+
+  nav a {
+    color: var(--header-text);
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 500;
+  }
+
+  nav a:hover {
+    text-decoration: underline;
+    color: var(--button-text);
+  }
+
+  .theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 20px;
+    padding: 6px;
+    color: var(--button-text);
+  }
+
+  .theme-toggle svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--button-text);
+    transition: transform 0.4s ease, fill 0.3s;
+  }
+
+  .theme-toggle:hover svg {
+    transform: rotate(180deg);
   }
 
   h1 {
     text-align: center;
-    margin-bottom: 1rem;
+    margin: 2rem 0 1rem;
   }
+
   .accordion {
     background-color: #eee;
     border-radius: 5px;
     margin-bottom: 1rem;
   }
+
   .accordion-header {
     cursor: pointer;
     padding: 1rem;
@@ -65,71 +96,30 @@
     border-bottom: 1px solid #ccc;
     user-select: none;
   }
+
   .accordion-header:hover {
     background-color: #ddd;
   }
+
   .accordion-content {
     max-height: 0;
     overflow: hidden;
     padding: 0 1rem;
     background-color: white;
-    transition: max-height 0.3s ease, padding 0.3s ease;
+    transition: max-height 0.3s ease;
   }
+
   .accordion-content p, .accordion-content ul {
     margin: 0.5rem 0 1rem;
   }
+
   .accordion-content ul {
     padding-left: 1.2rem;
   }
+
   .accordion.active .accordion-content {
-    max-height: 1000px; /* large enough for content */
+    max-height: 500px;
     padding: 1rem;
-  }
-
-  /* Dark mode styles */
-  body.dark-mode {
-    background-color: #121212;
-    color: #e0e0e0;
-  }
-  body.dark-mode .accordion {
-    background-color: #1e1e1e;
-  }
-  body.dark-mode .accordion-header {
-    border-bottom: 1px solid #444;
-  }
-  body.dark-mode .accordion-header:hover {
-    background-color: #333;
-  }
-  body.dark-mode .accordion-content {
-    background-color: #222;
-    color: #ddd;
-  }
-  body.dark-mode footer {
-    background: #1a1a1a;
-    color: #888;
-  }
-  body.dark-mode footer a {
-    color: #90caf9;
-  }
-  body.dark-mode header {
-    background-color: #357ABD;
-  }
-
-  /* Dark mode toggle button inside header */
-  #darkModeToggle {
-    background: #4a90e2;
-    border: none;
-    color: white;
-    padding: 0.4rem 0.8rem;
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: bold;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    user-select: none;
-    transition: background-color 0.3s ease;
-  }
-  #darkModeToggle:hover {
-    background: #357ABD;
   }
 
   footer {
@@ -138,15 +128,15 @@
     text-align: center;
     font-size: 14px;
     color: #555;
-    max-width: 800px;
-    margin: 2rem auto 0;
-    border-radius: 8px;
+    margin-top: 2rem;
   }
+
   footer a {
     margin: 0 10px;
     color: #4a90e2;
     text-decoration: none;
   }
+
   footer a:hover {
     text-decoration: underline;
   }
@@ -154,16 +144,27 @@
 </head>
 <body>
 
+<!-- Header -->
 <header>
-  <a href="https://sites.google.com/view/tempelchat/about-tempelchat?authuser=0">Home</a>
-  <button id="darkModeToggle">Dark Mode</button>
+  <h1>TempelChat</h1>
+  <nav>
+    <a href="https://sites.google.com/view/tempelchat/about-tempelchat">About</a>
+    <a href="https://tempelchat.github.io/pricing.html">Pricing</a>
+    <a href="https://tempelchat.github.io/help-center.html">Help Center</a>
+    <button class="theme-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">
+      <svg id="theme-icon" viewBox="0 0 24 24">
+        <path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.8 1.42-1.42zM1 13h3v-2H1v2zm10-9h2v-3h-2v3zm7.66 2.46l1.79-1.8-1.41-1.41-1.8 1.79 1.42 1.42zM20 11v2h3v-2h-3zm-2.24 6.76l1.8 1.79 1.41-1.41-1.79-1.8-1.42 1.42zM13 20h-2v3h2v-3zm-7.66-2.46l-1.79 1.8 1.41 1.41 1.8-1.79-1.42-1.42zM12 8a4 4 0 100 8 4 4 0 000-8z"/>
+      </svg>
+    </button>
+  </nav>
 </header>
 
+<!-- Help Center Title -->
 <h1>TempelChat Help Center</h1>
 <p>Welcome to the TempelChat Help Center! Here you’ll find answers to common questions and tips to get the most out of your TempelChat experience.</p>
 
-<!-- Accordion sections here (same as before) -->
-
+<!-- Your full accordion content remains here (unchanged) -->
+<!-- START ACCORDIONS -->
 <div class="accordion">
   <div class="accordion-header">1. Getting Started</div>
   <div class="accordion-content">
@@ -250,10 +251,10 @@
     <p><strong>Instagram:</strong> @TempelChat</p>
   </div>
 </div>
-<!-- Repeat your other accordion sections as before -->
+<!-- END ACCORDIONS -->
 
+<!-- JavaScript -->
 <script>
-  // Accordion toggle
   document.querySelectorAll('.accordion-header').forEach(header => {
     header.addEventListener('click', () => {
       const accordion = header.parentElement;
@@ -261,30 +262,32 @@
     });
   });
 
-  // Dark mode toggle
-  const toggleBtn = document.getElementById('darkModeToggle');
-  const body = document.body;
+  const icon = document.getElementById("theme-icon");
 
-  // Load saved preference
-  if (localStorage.getItem('darkMode') === 'enabled') {
-    body.classList.add('dark-mode');
-    toggleBtn.textContent = 'Light Mode';
+  function setIcon(isDark) {
+    icon.innerHTML = isDark
+      ? '<path d="M12 3a9 9 0 000 18 9 9 0 010-18z"/>'
+      : '<path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.8 1.42-1.42zM1 13h3v-2H1v2zm10-9h2v-3h-2v3zm7.66 2.46l1.79-1.8-1.41-1.41-1.8 1.79 1.42 1.42zM20 11v2h3v-2h-3zm-2.24 6.76l1.8 1.79 1.41-1.41-1.79-1.8-1.42 1.42zM13 20h-2v3h2v-3zm-7.66-2.46l-1.79 1.8 1.41 1.41 1.8-1.79-1.42-1.42zM12 8a4 4 0 100 8 4 4 0 000-8z"/>';
   }
 
-  toggleBtn.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
-    if (body.classList.contains('dark-mode')) {
-      toggleBtn.textContent = 'Light Mode';
-      localStorage.setItem('darkMode', 'enabled');
-    } else {
-      toggleBtn.textContent = 'Dark Mode';
-      localStorage.setItem('darkMode', 'disabled');
-    }
+  function toggleDarkMode() {
+    const isDark = document.body.classList.toggle("dark-mode");
+    setIcon(isDark);
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  }
+
+  window.addEventListener("DOMContentLoaded", () => {
+    const saved = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const isDark = saved === "dark" || (!saved && prefersDark);
+    if (isDark) document.body.classList.add("dark-mode");
+    setIcon(isDark);
   });
 </script>
 
+<!-- Footer -->
 <footer>
-  <div>
+  <div style="margin-bottom: 10px;">
     <a href="https://sites.google.com/view/tempelchat/about-tempelchat?authuser=0">Home</a>
     <a href="https://tempelchat.github.io/TempelChat-Contact/">Contact</a>
     <a href="https://docs.google.com/document/d/18K4MfmGD_IARY9QkTzAbnkqUyO7Cqw6DVbO0sKJXmnA/edit?usp=drivesdk">Privacy</a>
