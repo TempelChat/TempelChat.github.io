@@ -346,22 +346,85 @@
     </section>
   </main>
 
-  <footer>
-    <div class="footer-links">
-      <a href="https://TempelChat.github.io/home.html">Home</a>
-      <a href="https://tempelchat.github.io/TempelChat-Contact/">Contact</a>
-      <a href="https://tempelchat.github.io/TempelChat-Legal/privacy.html">Privacy</a>
-      <a href="https://tempelchat.github.io/TempelChat-Legal/tos.html">Terms</a>
-    </div>
-    <a
-      href="sms:info.tempelchat@gmail.com&body=Hi%20TempelChat%2C%20I%20have%20a%20question%20about%20your%20app."
-      class="imessage-button"
-      aria-label="Message Us on iMessage"
-    >
-      📲 Message Us on iMessage
-    </a>
-    <div>&copy; 2025 TempelChat. All rights reserved.</div>
-  </footer>
+<!-- Footer Start -->
+<footer role="contentinfo" class="footer" style="display: flex; flex-direction: column; gap: 1.5rem; padding: 2rem; background-color: #f4f4f4;">
+  
+  <div class="footer-section" aria-labelledby="company-heading" style="display: flex; flex-direction: column;">
+    <h4 id="company-heading" style="margin-bottom: 0.5rem; font-size: 1.1rem; color: #333;">Company</h4>
+    <a href="https://tempelchat.github.io/TempelChat-Contact/apply.html" style="color: #555; text-decoration: none; margin: 2px 0;">💼 Jobs</a>
+    <a href="https://sites.google.com/view/tempelchat/our-mascot?authuser=0" style="color: #555; text-decoration: none; margin: 2px 0;">🤖 Mascot</a>
+    <a href="https://sites.google.com/view/maxtempelmanwebsite/the-website" style="color: #555; text-decoration: none; margin: 2px 0;">👦 MaxTempelman</a>
+  </div>
+
+  <div class="footer-section" aria-labelledby="resources-heading" style="display: flex; flex-direction: column;">
+    <h4 id="resources-heading" style="margin-bottom: 0.5rem; font-size: 1.1rem; color: #333;">Resources</h4>
+    <a href="https://tempelchat.github.io/TempelChat-Contact/" style="color: #555; text-decoration: none; margin: 2px 0;">🆘 Support</a>
+    <a href="https://tempelchat.github.io/TempelChat-Contact/feedback.html" style="color: #555; text-decoration: none; margin: 2px 0;">💡 Feedback</a>
+    <a href="https://tempelchat.github.io/TempelChat-Contact/appeals.html" style="color: #555; text-decoration: none; margin: 2px 0;">🧾 Appeals</a>
+  </div>
+
+  <div class="footer-section" aria-labelledby="policies-heading" style="display: flex; flex-direction: column;">
+    <h4 id="policies-heading" style="margin-bottom: 0.5rem; font-size: 1.1rem; color: #333;">Policies</h4>
+    <a href="https://tempelchat.github.io/TempelChat-Legal/tos.html" style="color: #555; text-decoration: none; margin: 2px 0;">📜 Terms</a>
+    <a href="https://tempelchat.github.io/TempelChat-Legal/privacy.html" style="color: #555; text-decoration: none; margin: 2px 0;">🔐 Privacy</a>
+    <a href="https://tempelchat.github.io/TempelChat-Legal/community-guidelines.html" style="color: #555; text-decoration: none; margin: 2px 0;">📖 Guidelines</a>
+  </div>
+
+  <div class="footer-section" aria-labelledby="social-heading" style="display: flex; flex-direction: column;">
+    <h4 id="social-heading" style="margin-bottom: 0.5rem; font-size: 1.1rem; color: #333;">Social</h4>
+    <a href="https://www.instagram.com/tempelchat" style="color: #555; text-decoration: none; margin: 2px 0;">📸 Instagram</a>
+    <a href="https://x.com/tempelchatinfo" style="color: #555; text-decoration: none; margin: 2px 0;">🐦 Twitter</a>
+    <a href="https://youtube.com/@tempelchatyt" style="color: #555; text-decoration: none; margin: 2px 0;">▶️ YouTube</a>
+  </div>
+  <a
+    href="sms:info.tempelchat@gmail.com&body=Hi%20TempelChat%2C%20I%20have%20a%20question%20about%20your%20app."
+    class="imessage-button"
+    aria-label="Message Us on iMessage"
+  >
+    📲 Message Us on iMessage
+  </a>
+  <div>&copy; 2025 TempelChat. All rights reserved.</div>
+</footer>
+
+<style>
+  footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    text-align: center;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;       /* Stack vertically */
+    align-items: center;          /* Center horizontally */
+    gap: 15px;                    /* Space between footer items */
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;       /* Stack links vertically */
+    gap: 10px;                    /* Space between each link */
+    margin-bottom: 0;             /* Remove old margin */
+  }
+
+  .footer-links a {
+    color: var(--footer-text);
+    text-decoration: none;
+    font-size: 16px;
+  }
+
+  .footer-links a:hover {
+    text-decoration: underline;
+  }
+
+  .imessage-button {
+    margin: 10px 0;
+    padding: 10px 20px;
+    background-color: #007aff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 16px;
+  }
+</style>
 
   <script>
     function toggleDarkMode() {
