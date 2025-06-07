@@ -38,10 +38,21 @@
 
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-color: var(--bg-color);
+      background: linear-gradient(135deg, #f0f4f8, #e0e7ef);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
       color: var(--text-color);
       line-height: 1.6;
       transition: background-color 0.3s, color 0.3s;
+      background-image: radial-gradient(#ccc 1px, transparent 1px);
+      background-size: 40px 40px;
+      overflow-x: hidden;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     header {
@@ -51,37 +62,100 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: relative;
+      z-index: 1001;
     }
 
     header h1 {
       font-size: 28px;
     }
 
-    nav {
+    /* Sidebar styles */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background-color: var(--header-bg);
+      color: var(--header-text);
+      padding: 60px 20px 20px 20px;
+      box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+      transition: left 0.3s ease;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar.open {
+      left: 0;
+    }
+
+    .sidebar a {
+      color: var(--header-text);
+      text-decoration: none;
+      margin: 15px 0;
+      font-weight: 500;
+      font-size: 18px;
+    }
+
+    .sidebar a:hover {
+      text-decoration: underline;
+      color: #6dd5fa;
+    }
+
+    /* Overlay when sidebar is open */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.3);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease;
+      z-index: 999;
+    }
+
+    .overlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Sidebar toggle button */
+    .sidebar-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      color: var(--button-text);
+      transition: transform 0.4s ease;
       display: flex;
       align-items: center;
     }
 
-    nav a {
-      color: var(--header-text);
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: 500;
+    .sidebar-toggle svg {
+      width: 28px;
+      height: 28px;
+      fill: var(--button-text);
+      transition: transform 0.4s ease, fill 0.3s;
     }
 
-    nav a:hover {
-      text-decoration: underline;
-      color: #6dd5fa;
+    .sidebar-toggle:hover svg {
+      transform: rotate(90deg);
     }
 
     .theme-toggle {
       background: none;
       border: none;
       cursor: pointer;
-      margin-left: 20px;
+      margin-left: 15px;
       padding: 6px;
       color: var(--button-text);
       transition: transform 0.4s ease;
+      display: flex;
+      align-items: center;
     }
 
     .theme-toggle svg {
@@ -96,10 +170,12 @@
     }
 
     .hero {
-      padding: 80px 40px;
+      padding: 80px 40px 0;
       text-align: center;
       background: var(--hero-bg);
       color: white;
+      position: relative;
+      overflow: hidden;
     }
 
     .hero h2 {
@@ -145,67 +221,56 @@
 
     .feature {
       flex: 1 1 250px;
-      background: white;
+      border: 1px solid #ccc;
       padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      transition: background 0.3s;
-    }
-
-    body.dark-mode .feature {
-      background: #1e1e1e;
-      box-shadow: 0 0 10px rgba(255,255,255,0.05);
+      border-radius: 10px;
+      background: var(--bg-color);
     }
 
     footer {
-      background: var(--footer-bg);
-      padding: 20px 0;
-      text-align: center;
-      font-size: 14px;
+      background-color: var(--footer-bg);
       color: var(--footer-text);
-      margin-top: 40px;
-      transition: background-color 0.3s, color 0.3s;
+      text-align: center;
+      padding: 30px 20px;
     }
 
-    footer a {
-      margin: 0 10px;
-      color: #4a90e2;
+    .footer-links {
+      margin-bottom: 15px;
+    }
+
+    .footer-links a {
+      color: var(--footer-text);
       text-decoration: none;
+      margin: 0 12px;
     }
 
-    footer a:hover {
+    .footer-links a:hover {
       text-decoration: underline;
     }
 
-    /* Newsletter styling */
-    #newsletter {
-      padding: 60px 20px;
-      text-align: center;
-    }
-
-    #newsletter > div {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 0 20px;
-      box-sizing: border-box;
-    }
-
-    .beehiiv-embed {
-      width: 100% !important;
-      height: 400px !important;
-      border-radius: 0 !important;
-      background-color: transparent !important;
-      box-shadow: none !important;
+    .imessage-button {
+      display: inline-block;
+      margin: 10px 0;
+      padding: 10px 20px;
+      background-color: #007aff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 16px;
     }
 
     @media (max-width: 768px) {
-      .hero h2 {
-        font-size: 32px;
-      }
-
       .features {
         flex-direction: column;
         align-items: center;
+      }
+
+      header, .hero, .section {
+        padding: 20px;
+      }
+
+      .hero h2 {
+        font-size: 32px;
       }
     }
   </style>
@@ -214,53 +279,61 @@
 
   <header>
     <h1>TempelChat</h1>
-    <nav>
-      <a href="https://sites.google.com/view/tempelchat/about-tempelchat">About</a>
-      <a href="https://tempelchat.github.io/pricing.html">Pricing</a>
-      <a href="https://tempelchat.github.io/help-center.html">Help Center</a>
+    <div style="display: flex; align-items: center;">
+      <button class="sidebar-toggle" aria-label="Toggle menu" onclick="toggleSidebar()">
+        <svg viewBox="0 0 24 24">
+          <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
       <button class="theme-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">
         <svg id="theme-icon" viewBox="0 0 24 24">
-          <!-- Sun (default) -->
           <path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.8 1.42-1.42zM1 13h3v-2H1v2zm10-9h2v-3h-2v3zm7.66 2.46l1.79-1.8-1.41-1.41-1.8 1.79 1.42 1.42zM20 11v2h3v-2h-3zm-2.24 6.76l1.8 1.79 1.41-1.41-1.79-1.8-1.42 1.42zM13 20h-2v3h2v-3zm-7.66-2.46l-1.79 1.8 1.41 1.41 1.8-1.79-1.42-1.42zM12 8a4 4 0 100 8 4 4 0 000-8z"/>
         </svg>
       </button>
-    </nav>
+    </div>
   </header>
 
-  <section class="hero">
-    <h2>Talk Freely, Connect Instantly</h2>
-    <p>TempelChat is a secure, lightning-fast messaging platform built for modern communication.</p>
-    <a href="https://tempelchat.github.io/" class="login-button">Login</a>
-  </section>
+  <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+    <a href="https://sites.google.com/view/tempelchat/about-tempelchat">About</a>
+    <a href="https://tempelchat.github.io/pricing.html">Pricing</a>
+    <a href="https://tempelchat.github.io/help-center.html">Help Center</a>
+  </nav>
+  <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
 
-  <section id="about" class="section">
-    <h2>What is TempelChat?</h2>
-    <p>TempelChat is a next-gen chat app designed for speed, privacy, and simplicity. Whether you're messaging friends or coworkers, our platform ensures your conversations stay fast and secure.</p>
-  </section>
+  <main>
+    <section class="hero">
+      <h2>Talk Freely, Connect Instantly</h2>
+      <p>TempelChat is a secure, lightning-fast messaging platform built for modern communication.</p>
+      <a href="https://tempelchat.github.io/" class="login-button">Login</a>
+      <svg viewBox="0 0 1440 320" style="display: block;" xmlns="http://www.w3.org/2000/svg"><path fill="#f9f9f9" fill-opacity="1" d="M0,224L48,202.7C96,181,192,139,288,122.7C384,107,480,117,576,138.7C672,160,768,192,864,208C960,224,1056,224,1152,202.7C1248,181,1344,139,1392,117.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+    </section>
 
-  <section id="features" class="section">
-    <h2>Features</h2>
-    <div class="features">
-      <div class="feature">
-        <h3>🔐 End-to-End Encryption</h3>
-        <p>Your messages are encrypted from sender to receiver. We can’t see them, and neither can anyone else.</p>
-      </div>
-      <div class="feature">
-        <h3>⚡ Real-Time Messaging</h3>
-        <p>Instant delivery and sync across all your devices. No delays, just pure speed.</p>
-      </div>
-      <div class="feature">
-        <h3>🌍 Global Access</h3>
-        <p>Message anyone, anywhere. TempelChat works seamlessly around the globe.</p>
-      </div>
-    </div>
-  </section>
+    <section id="about" class="section">
+      <h2>What is TempelChat?</h2>
+      <p>TempelChat is a next-gen chat app designed for speed, privacy, and simplicity. Whether you're messaging friends or coworkers, our platform ensures your conversations stay fast and secure.</p>
+    </section>
 
-  <!-- Newsletter Section -->
-  <section id="newsletter" class="section">
-    <h2>Subscribe to Our Newsletter</h2>
-    <p>Stay updated with the latest TempelChat news and updates.</p>
-    <div>
+    <section id="features" class="section">
+      <h2>Features</h2>
+      <div class="features">
+        <div class="feature">
+          <h3>🔐 End-to-End Encryption</h3>
+          <p>Your messages are encrypted from sender to receiver. We can’t see them, and neither can anyone else.</p>
+        </div>
+        <div class="feature">
+          <h3>⚡ Real-Time Messaging</h3>
+          <p>Instant delivery and sync across all your devices. No delays, just pure speed.</p>
+        </div>
+        <div class="feature">
+          <h3>🌍 Global Access</h3>
+          <p>Message anyone, anywhere. TempelChat works seamlessly around the globe.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="newsletter" class="section">
+      <h2>Subscribe to Our Newsletter</h2>
+      <p>Stay updated with the latest TempelChat news and updates.</p>
       <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
       <iframe 
         src="https://subscribe-forms.beehiiv.com/7eb970a2-4bea-401f-9e58-e6231f208ade" 
@@ -268,44 +341,39 @@
         data-test-id="beehiiv-embed" 
         frameborder="0" 
         scrolling="no"
-        style="width: 100%; height: 400px; border-radius: 0; background-color: transparent; box-shadow: none;"
-      ></iframe>
-    </div>
-  </section>
+        style="width: 100%; height: 400px; border-radius: 0; background-color: transparent; box-shadow: none;">
+      </iframe>
+    </section>
+  </main>
 
   <footer>
-    <div style="margin-bottom: 10px;">
+    <div class="footer-links">
       <a href="https://TempelChat.github.io/home.html">Home</a>
       <a href="https://tempelchat.github.io/TempelChat-Contact/">Contact</a>
       <a href="https://tempelchat.github.io/TempelChat-Legal/privacy.html">Privacy</a>
       <a href="https://tempelchat.github.io/TempelChat-Legal/tos.html">Terms</a>
     </div>
+    <a
+      href="sms:info.tempelchat@gmail.com&body=Hi%20TempelChat%2C%20I%20have%20a%20question%20about%20your%20app."
+      class="imessage-button"
+      aria-label="Message Us on iMessage"
+    >
+      📲 Message Us on iMessage
+    </a>
     <div>&copy; 2025 TempelChat. All rights reserved.</div>
   </footer>
 
   <script>
-    const icon = document.getElementById("theme-icon");
-
-    function setIcon(isDark) {
-      icon.innerHTML = isDark
-        ? '<path d="M12 3a9 9 0 000 18 9 9 0 010-18z"/>'
-        : '<path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.8 1.42-1.42zM1 13h3v-2H1v2zm10-9h2v-3h-2v3zm7.66 2.46l1.79-1.8-1.41-1.41-1.8 1.79 1.42 1.42zM20 11v2h3v-2h-3zm-2.24 6.76l1.8 1.79 1.41-1.41-1.79-1.8-1.42 1.42zM13 20h-2v3h2v-3zm-7.66-2.46l-1.79 1.8 1.41 1.41 1.8-1.79-1.42-1.42zM12 8a4 4 0 100 8 4 4 0 000-8z"/>';
-    }
-
     function toggleDarkMode() {
-      const isDark = document.body.classList.toggle("dark-mode");
-      setIcon(isDark);
-      localStorage.setItem("theme", isDark ? "dark" : "light");
+      document.body.classList.toggle('dark-mode');
     }
 
-    window.addEventListener("DOMContentLoaded", () => {
-      const saved = localStorage.getItem("theme");
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      const isDark = saved === "dark" || (!saved && prefersDark);
-      if (isDark) document.body.classList.add("dark-mode");
-      setIcon(isDark);
-    });
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('overlay');
+      sidebar.classList.toggle('open');
+      overlay.classList.toggle('show');
+    }
   </script>
-
 </body>
 </html>
