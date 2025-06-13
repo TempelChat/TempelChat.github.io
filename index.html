@@ -291,6 +291,30 @@
     cursor: pointer;
     user-select: none;
     z-index: 11;
+}
+    .status-button {
+      display: inline-block;
+      padding: 12px 20px;
+      background-color: #4a90e2;
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .status-button:hover {
+      background-color: #357ab7;
+      transform: translateY(-2px);
+    }
+
+    .status-button:active {
+      background-color: #2c659a;
+      transform: translateY(0);
+
   }
 </style>
 </head>
@@ -816,9 +840,11 @@
     <a href="https://tempelchat.github.io/TempelChat-Contact/">Contact</a>
     <a href="https://tempelchat.github.io/TempelChat-Legal/privacy.html">Privacy</a>
     <a href="https://tempelchat.github.io/TempelChat-Legal/tos.html">Terms</a>
-        <a href="">Status</a>
   </div>
   <div>&copy; 2025 TempelChat. All rights reserved.</div>
 </footer>
+
+<a href="https://tempelchat.github.io/status.html" target="_blank" class="status-button">📊 Status Page</a>
+
 </body> 
 </html>
