@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TempelChat Status Page</title>
+  <style>
+    :root {
+      --bg-color: #f8f9fa;
+      --text-color: #333;
+      --header-bg: #4a90e2;
+      --link-color: #4a90e2;
+      --footer-bg: #e9ecef;
+    }
+
+    body.dark {
+      --bg-color: #121212;
+      --text-color: #f0f0f0;
+      --header-bg: #1e88e5;
+      --link-color: #90caf9;
+      --footer-bg: #1f1f1f;
+    }
+
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+    }
+
+    header {
+      background-color: var(--header-bg);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    section {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 12px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .status-ok {
+      color: green;
+      font-weight: bold;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background-color: var(--footer-bg);
+    }
+
+    a {
+      color: var(--link-color);
+      text-decoration: none;
+    }
+
+    .dark-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: transparent;
+      border: 1px solid #fff;
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .status-button {
+      display: inline-block;
+      padding: 10px 16px;
+      background: #4a90e2;
+      color: #fff;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      margin-top: 12px;
+    }
+
+    .status-button:hover {
+      background: #357ab7;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🚦 TempelChat Status Page</h1>
+    <p>Last updated: June 13, 2025, 1:00 PM (UTC-5)</p>
+    <h3 class="status-ok">✅ All Systems Operational</h3>
+    <button class="dark-toggle" onclick="toggleDarkMode()">🌓 Toggle Dark Mode</button>
+  </header>
+
+  <section>
+    <h2>🔧 System Components</h2>
+    <table>
+      <tr><th>Component</th><th>Status</th><th>Notes</th></tr>
+      <tr><td>Chat Messaging</td><td class="status-ok">Operational</td><td>No known issues</td></tr>
+      <tr><td>Notifications</td><td class="status-ok">Operational</td><td>Push and email working as expected</td></tr>
+      <tr><td>User Authentication</td><td class="status-ok">Operational</td><td>Login, signup, and 2FA fully functional</td></tr>
+      <tr><td>Media Uploads</td><td class="status-ok">Operational</td><td>Images, audio, and video uploads stable</td></tr>
+      <tr><td>API Gateway</td><td class="status-ok">Operational</td><td>All endpoints responding normally</td></tr>
+      <tr><td>Web App</td><td class="status-ok">Operational</td><td>Loading times normal</td></tr>
+      <tr><td>Mobile App</td><td class="status-ok">Operational</td><td>No crashes or slowdowns reported</td></tr>
+    </table>
+
+    <h2>📊 Performance Metrics (Past 24h)</h2>
+    <ul>
+      <li><strong>Uptime:</strong> 100%</li>
+      <li><strong>Avg Response Time:</strong> 142ms</li>
+      <li><strong>Message Delivery Rate:</strong> 99.98%</li>
+      <li><strong>Push Notification Delivery:</strong> 99.91%</li>
+    </ul>
+
+    <h2>📅 Scheduled Maintenance</h2>
+    <p>🔧 <em>No maintenance scheduled at this time.</em></p>
+
+    <h2>🚨 Past Incidents</h2>
+    <table>
+      <tr><th>Date</th><th>Incident</th><th>Status</th></tr>
+      <tr><td>June 10, 2025</td><td>Notification delays</td><td class="status-ok">Resolved</td></tr>
+      <tr><td>June 2, 2025</td><td>Partial API outage (EU)</td><td class="status-ok">Resolved</td></tr>
+    </table>
+
+    <h2>📡 Live Uptime Monitoring</h2>
+    <p>To view the real-time system status, click the button below:</p>
+    <a href="https://stats.uptimerobot.com/QQyqs8ljTx" target="_blank" class="status-button">📊 Open Live Status Dashboard</a>
+  </section>
+
+  <div class="footer">
+    <p>📬 Stay Updated: 
+      <a href="#">Subscribe</a> | 
+      <a href="mailto:support@tempelchat.com">Contact Support</a> | 
+      <a href="https://twitter.com/tempelchat" target="_blank">Follow on Twitter</a>
+    </p>
+  </div>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark");
+      localStorage.setItem("tempelchat-dark", document.body.classList.contains("dark"));
+    }
+
+    if (localStorage.getItem("tempelchat-dark") === "true") {
+      document.body.classList.add("dark");
+    }
+  </script>
+</body>
+</html>
