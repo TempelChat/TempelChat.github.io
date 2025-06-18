@@ -232,24 +232,36 @@
       color: var(--footer-text);
       text-align: center;
       padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
     }
 
-    .footer-links {
-      margin-bottom: 15px;
+    .footer-section {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
     }
 
-    .footer-links a {
+    .footer-section h4 {
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+      color: var(--text-color);
+    }
+
+    .footer-section a {
       color: var(--footer-text);
       text-decoration: none;
-      margin: 0 12px;
+      font-size: 16px;
     }
 
-    .footer-links a:hover {
+    .footer-section a:hover {
       text-decoration: underline;
     }
 
     .imessage-button {
-      display: inline-block;
       margin: 10px 0;
       padding: 10px 20px;
       background-color: #007aff;
@@ -257,6 +269,17 @@
       text-decoration: none;
       border-radius: 10px;
       font-size: 16px;
+      display: inline-block;
+    }
+
+    select#language-select {
+      padding: 6px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      background-color: var(--button-bg);
+      color: var(--button-text);
+      cursor: pointer;
     }
 
     @media (max-width: 768px) {
@@ -272,15 +295,23 @@
       .hero h2 {
         font-size: 32px;
       }
+
+      footer {
+        gap: 10px;
+        padding: 20px 15px;
+      }
+
+      .footer-section {
+        align-items: center;
+      }
     }
   </style>
 </head>
 <body>
-
   <header>
     <h1>TempelChat</h1>
     <div style="display: flex; align-items: center;">
-      <button class="sidebar-toggle" aria-label="Toggle menu" onclick="toggleSidebar()">
+      <button class="sidebar-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="toggleSidebar()">
         <svg viewBox="0 0 24 24">
           <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
@@ -305,7 +336,9 @@
       <h2>Talk Freely, Connect Instantly</h2>
       <p>TempelChat is a secure, lightning-fast messaging platform built for modern communication.</p>
       <a href="https://tempelchat.github.io/" class="login-button">Login</a>
-      <svg viewBox="0 0 1440 320" style="display: block;" xmlns="http://www.w3.org/2000/svg"><path fill="#f9f9f9" fill-opacity="1" d="M0,224L48,202.7C96,181,192,139,288,122.7C384,107,480,117,576,138.7C672,160,768,192,864,208C960,224,1056,224,1152,202.7C1248,181,1344,139,1392,117.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+      <svg viewBox="0 0 1440 320" style="display: block;" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#f9f9f9" fill-opacity="1" d="M0,224L48,202.7C96,181,192,139,288,122.7C384,107,480,117,576,138.7C672,160,768,192,864,208C960,224,1056,224,1152,202.7C1248,181,1344,139,1392,117.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/>
+      </svg>
     </section>
 
     <section id="about" class="section">
@@ -334,7 +367,6 @@
     <section id="newsletter" class="section">
       <h2>Subscribe to Our Newsletter</h2>
       <p>Stay updated with the latest TempelChat news and updates.</p>
-      <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
       <iframe 
         src="https://subscribe-forms.beehiiv.com/7eb970a2-4bea-401f-9e58-e6231f208ade" 
         class="beehiiv-embed" 
@@ -346,97 +378,155 @@
     </section>
   </main>
 
-<!-- Footer Start -->
-<footer role="contentinfo" class="footer" style="display: flex; flex-direction: column; gap: 1.5rem; padding: 2rem; background-color: #f4f4f4;">
-  
-  <div class="footer-section" aria-labelledby="company-heading" style="display: flex; flex-direction: column;">
-    <h4 id="company-heading" style="margin-bottom: 0.5rem; font-size: 1.1rem; color: #333;">Company</h4>
-    <a href="https://tempelchat.github.io/TempelChat-Contact/apply.html" style="color: #555; text-decoration: none; margin: 2px 0;">💼 Jobs</a>
-    <a href="https://sites.google.com/view/tempelchat/our-mascot?authuser=0" style="color: #555; text-decoration: none; margin: 2px 0;">🤖 Mascot</a>
-    <a href="https://sites.google.com/view/maxtempelmanwebsite/the-website" style="color: #555; text-decoration: none; margin: 2px 0;">👦 MaxTempelman</a>
-  </div>
+  <footer role="contentinfo">
+    <div class="footer-section" aria-labelledby="company-heading">
+      <h4 id="company-heading">Company</h4>
+      <a href="https://tempelchat.github.io/TempelChat-Contact/apply.html">💼 Jobs</a>
+      <a href="https://sites.google.com/view/tempelchat/our-mascot?authuser=0">🤖 Mascot</a>
+      <a href="https://sites.google.com/view/maxtempelmanwebsite/the-website">👦 MaxTempelman</a>
+    </div>
 
-  <div class="footer-section" aria-labelledby="resources-heading" style="display: flex; flex-direction: column;">
-    <h4 id="resources-heading" style="margin-bottom: 0.5rem; font-size: 1.1rem; color: #333;">Resources</h4>
-    <a href="https://tempelchat.github.io/TempelChat-Contact/" style="color: #555; text-decoration: none; margin: 2px 0;">🆘 Support</a>
-    <a href="https://tempelchat.github.io/TempelChat-Contact/feedback.html" style="color: #555; text-decoration: none; margin: 2px 0;">💡 Feedback</a>
-    <a href="https://tempelchat.github.io/TempelChat-Contact/appeals.html" style="color: #555; text-decoration: none; margin: 2px 0;">🧾 Appeals</a>
-  </div>
+    <div class="footer-section" aria-labelledby="resources-heading">
+      <h4 id="resources-heading">Resources</h4>
+      <a href="https://tempelchat.github.io/TempelChat-Contact/">🆘 Support</a>
+      <a href="https://tempelchat.github.io/TempelChat-Contact/feedback.html">💡 Feedback</a>
+      <a href="https://tempelchat.github.io/TempelChat-Contact/appeals.html">🧾 Appeals</a>
+    </div>
 
-  <div class="footer-section" aria-labelledby="policies-heading" style="display: flex; flex-direction: column;">
-    <h4 id="policies-heading" style="margin-bottom: 0.5rem; font-size: 1.1rem; color: #333;">Policies</h4>
-    <a href="https://tempelchat.github.io/TempelChat-Legal/tos.html" style="color: #555; text-decoration: none; margin: 2px 0;">📜 Terms</a>
-    <a href="https://tempelchat.github.io/TempelChat-Legal/privacy.html" style="color: #555; text-decoration: none; margin: 2px 0;">🔐 Privacy</a>
-    <a href="https://tempelchat.github.io/TempelChat-Legal/community-guidelines.html" style="color: #555; text-decoration: none; margin: 2px 0;">📖 Guidelines</a>
-  </div>
+    <div class="footer-section" aria-labelledby="policies-heading">
+      <h4 id="policies-heading">Policies</h4>
+      <a href="https://tempelchat.github.io/TempelChat-Legal/tos.html">📜 Terms</a>
+      <a href="https://tempelchat.github.io/TempelChat-Legal/privacy.html">🔐 Privacy</a>
+      <a href="https://tempelchat.github.io/TempelChat-Legal/community-guidelines.html">📖 Guidelines</a>
+    </div>
 
-  <div class="footer-section" aria-labelledby="social-heading" style="display: flex; flex-direction: column;">
-    <h4 id="social-heading" style="margin-bottom: 0.5rem; font-size: 1.1rem; color: #333;">Social</h4>
-    <a href="https://www.instagram.com/tempelchat" style="color: #555; text-decoration: none; margin: 2px 0;">📸 Instagram</a>
-    <a href="https://x.com/tempelchatinfo" style="color: #555; text-decoration: none; margin: 2px 0;">🐦 Twitter</a>
-    <a href="https://youtube.com/@tempelchatyt" style="color: #555; text-decoration: none; margin: 2px 0;">▶️ YouTube</a>
-  </div>
-  <a
-    href="sms:info.tempelchat@gmail.com&body=Hi%20TempelChat%2C%20I%20have%20a%20question%20about%20your%20app."
-    class="imessage-button"
-    aria-label="Message Us on iMessage"
-  >
-    📲 Message Us on iMessage
-  </a>
-  <div>&copy; 2025 TempelChat. All rights reserved.</div>
-</footer>
+    <div class="footer-section" aria-labelledby="social-heading">
+      <h4 id="social-heading">Social</h4>
+      <a href="https://www.instagram.com/tempelchat">📸 Instagram</a>
+      <a href="https://x.com/tempelchatinfo">🐦 Twitter</a>
+      <a href="https://youtube.com/@tempelchatyt">▶️ YouTube</a>
+    </div>
 
-<style>
-  footer {
-    background-color: var(--footer-bg);
-    color: var(--footer-text);
-    text-align: center;
-    padding: 30px 20px;
-    display: flex;
-    flex-direction: column;       /* Stack vertically */
-    align-items: center;          /* Center horizontally */
-    gap: 15px;                    /* Space between footer items */
-  }
+    <a href="sms:info.tempelchat@gmail.com&body=Hi%20TempelChat%2C%20I%20have%20a%20question%20about%20your%20app." class="imessage-button" aria-label="Message Us on iMessage">
+      📲 Message Us on iMessage
+    </a>
 
-  .footer-links {
-    display: flex;
-    flex-direction: column;       /* Stack links vertically */
-    gap: 10px;                    /* Space between each link */
-    margin-bottom: 0;             /* Remove old margin */
-  }
+    <select id="language-select" aria-label="Select Language">
+      <option value="en">🇬🇧 English</option>
+      <option value="es">🇪🇸 Español</option>
+      <option value="fr">🇫🇷 Français</option>
+      <option value="de">🇩🇪 Deutsch</option>
+    </select>
 
-  .footer-links a {
-    color: var(--footer-text);
-    text-decoration: none;
-    font-size: 16px;
-  }
-
-  .footer-links a:hover {
-    text-decoration: underline;
-  }
-
-  .imessage-button {
-    margin: 10px 0;
-    padding: 10px 20px;
-    background-color: #007aff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 10px;
-    font-size: 16px;
-  }
-</style>
+    <div>&copy; 2025 TempelChat. All rights reserved.</div>
+  </footer>
 
   <script>
+    // Dark mode toggle with localStorage persistence
     function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.toggle('dark-mode');
+      localStorage.setItem('darkMode', isDark);
     }
 
+    // On page load, apply saved dark mode preference or system preference
+    (function applyDarkModePreference() {
+      const saved = localStorage.getItem('darkMode');
+      if (saved === 'true') {
+        document.body.classList.add('dark-mode');
+      } else if (saved === null) {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.body.classList.add('dark-mode');
+        }
+      }
+    })();
+
+    // Sidebar toggle with aria-expanded updates and overlay
     function toggleSidebar() {
       const sidebar = document.getElementById('sidebar');
       const overlay = document.getElementById('overlay');
-      sidebar.classList.toggle('open');
-      overlay.classList.toggle('show');
+      const toggleBtn = document.querySelector('.sidebar-toggle');
+
+      const isOpen = sidebar.classList.toggle('open');
+      overlay.classList.toggle('show', isOpen);
+      toggleBtn.setAttribute('aria-expanded', isOpen);
+
+      if (isOpen) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
     }
+
+    // Close sidebar on Escape key press
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const sidebar = document.getElementById('sidebar');
+        if (sidebar.classList.contains('open')) {
+          toggleSidebar();
+        }
+      }
+    });
+
+    // Language translations data
+    const translations = {
+      en: {
+        heroTitle: "Talk Freely, Connect Instantly",
+        heroDesc: "TempelChat is a secure, lightning-fast messaging platform built for modern communication.",
+        aboutDesc: "TempelChat is a next-gen chat app designed for speed, privacy, and simplicity. Whether you're messaging friends or coworkers, our platform ensures your conversations stay fast and secure.",
+        featuresTitle: "Features"
+      },
+      es: {
+        heroTitle: "Habla libremente, conéctate al instante",
+        heroDesc: "TempelChat es una plataforma de mensajería segura y rápida diseñada para la comunicación moderna.",
+        aboutDesc: "TempelChat es una aplicación de chat de nueva generación diseñada para velocidad, privacidad y simplicidad. Tus conversaciones son rápidas y seguras.",
+        featuresTitle: "Características"
+      },
+      fr: {
+        heroTitle: "Parlez librement, connectez-vous instantanément",
+        heroDesc: "TempelChat est une plateforme de messagerie sécurisée et ultra-rapide pour une communication moderne.",
+        aboutDesc: "TempelChat est une application de messagerie de nouvelle génération conçue pour la vitesse, la confidentialité et la simplicité. Vos discussions restent rapides et sécurisées.",
+        featuresTitle: "Fonctionnalités"
+      },
+      de: {
+        heroTitle: "Frei sprechen, sofort verbinden",
+        heroDesc: "TempelChat ist eine sichere, blitzschnelle Messaging-Plattform für moderne Kommunikation.",
+        aboutDesc: "TempelChat ist eine Next-Gen-Chat-App für Geschwindigkeit, Datenschutz und Einfachheit. Nachrichten sind schnell und sicher.",
+        featuresTitle: "Funktionen"
+      }
+    };
+
+    // Function to update UI text according to language
+    function updateLanguage(lang) {
+      const t = translations[lang] || translations.en;
+      document.querySelector('.hero h2').textContent = t.heroTitle;
+      document.querySelector('.hero p').textContent = t.heroDesc;
+      document.querySelector('#about p').textContent = t.aboutDesc;
+      document.querySelector('#features h2').textContent = t.featuresTitle;
+    }
+
+    // Language select element
+    const languageSelect = document.getElementById('language-select');
+
+    // On language change by user
+    languageSelect.addEventListener('change', () => {
+      const selectedLang = languageSelect.value;
+      updateLanguage(selectedLang);
+      localStorage.setItem('preferredLanguage', selectedLang);
+    });
+
+    // On page load: detect or load preferred language
+    (function applyLanguagePreference() {
+      const savedLang = localStorage.getItem('preferredLanguage');
+      let langToUse = savedLang;
+
+      if (!langToUse) {
+        const browserLang = navigator.language.slice(0,2);
+        langToUse = translations[browserLang] ? browserLang : 'en';
+      }
+
+      languageSelect.value = langToUse;
+      updateLanguage(langToUse);
+    })();
   </script>
 </body>
 </html>
